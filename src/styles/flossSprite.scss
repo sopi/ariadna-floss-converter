@@ -1,0 +1,27 @@
+$icon-width: 71px;
+$icon-height: 42px;
+$icon-number-width: 32.93;
+$columnSpace: 9.75;
+$rowSpace: 4;
+
+
+$icons: url(../images/muliny.jpg);
+
+.floss_bg {
+  background-image: $icons;
+  width: $icon-width;
+  height: $icon-height;
+}
+
+
+@for $i from 0 through 319 {
+  $column:  round($i/21);
+  $row: $i % 21;
+  $iconWithNumberWidth: $icon-width + $icon-number-width;
+  $columnOffet: $iconWithNumberWidth * $column + $columnSpace * $column;
+  $rowOffet: $icon-height * $row + $rowSpace * $row;
+
+  .floss_bg--number_#{$i} { 
+    background-position: (-($columnOffet + $icon-number-width))  (-($rowOffet));
+  }
+}
